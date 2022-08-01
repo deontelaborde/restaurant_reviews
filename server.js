@@ -10,9 +10,13 @@ const { Restaurant } = require('./models')
 app.use(express.static(`${__dirname}/client/build`))
 
 // Test route
-app.get('/restaurants', (req, res) => {
-  // let restaurants = await async
-  res.send('I have hit the root route')
+app.get('/restaurants', async (req, res) => {
+  let restaurants = await Restaurant.find({})
+  res.send(restaurants)
+})
+
+app.post('/restaurants', (req, res) => {
+  res.send('I have hit the post route')
 })
 
 app.get('/*', (req, res) => {
