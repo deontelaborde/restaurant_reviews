@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 
 mongoose
-  .connect(process.env.MONGODB_URI) // if we don't have a local database named "productsDatabase" one will be created upon a successful connection
+  .connect(process.env.MONGODB_URL) // if we don't have a local database named "productsDatabase" one will be created upon a successful connection
   .then(() => {
     console.log('Successfully connected to MongoDB.')
   })
