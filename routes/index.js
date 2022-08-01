@@ -14,4 +14,5 @@ router.get('/restaurants/:id', restaurants.getOneRestaurant)
 router.get('/reviews', reviews.getAllReviews)
 router.post('/reviews', reviews.createReview)
 router.get('/reviews/:id', reviews.getReview)
+router.put('/reviews/:id', reviews.updateReview)
 module.exports = router
