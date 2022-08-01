@@ -7,6 +7,8 @@ const app = express()
 const { Restaurant } = require('./models')
 
 //middleware
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 app.use(express.static(`${__dirname}/client/build`))
 
 // Test route
@@ -15,8 +17,9 @@ app.get('/restaurants', async (req, res) => {
   res.send(restaurants)
 })
 
-app.post('/restaurants', (req, res) => {
-  res.send('I have hit the post route')
+app.post('/restaurants', async (req, res) => {
+  let createdRestaurant = await Restaurant.create(req.body)
+  res.send(createdRestaurant)
 })
 
 app.get('/*', (req, res) => {
