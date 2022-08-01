@@ -8,7 +8,13 @@ const createReview = async (req, res) => {
   let newReview = await Review.create(req.body)
   res.send(newReview)
 }
+
+const getReview = async (req, res) => {
+  let review = await Review.findById(req.params.id)
+  res.send(review)
+}
 module.exports = {
   getAllReviews,
-  createReview
+  createReview,
+  getReview
 }
