@@ -11,7 +11,7 @@ app.use(express.static(`${__dirname}/client/build`))
 
 // Test route
 app.get('/restaurants', (req, res) => {
-  let restaurants = await async 
+  // let restaurants = await async
   res.send('I have hit the root route')
 })
 
